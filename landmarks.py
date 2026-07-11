@@ -1,0 +1,47 @@
+"""
+Shared constants for the 33-point BlazePose landmark model used by
+MediaPipe's Pose Landmarker.
+"""
+
+# Landmark indices we actually use for cricket shot analysis
+NOSE = 0
+LEFT_EYE = 2
+RIGHT_EYE = 5
+LEFT_EAR = 7
+RIGHT_EAR = 8
+LEFT_SHOULDER = 11
+RIGHT_SHOULDER = 12
+LEFT_ELBOW = 13
+RIGHT_ELBOW = 14
+LEFT_WRIST = 15
+RIGHT_WRIST = 16
+LEFT_HIP = 23
+RIGHT_HIP = 24
+LEFT_KNEE = 25
+RIGHT_KNEE = 26
+LEFT_ANKLE = 27
+RIGHT_ANKLE = 28
+LEFT_HEEL = 29
+RIGHT_HEEL = 30
+LEFT_FOOT_INDEX = 31
+RIGHT_FOOT_INDEX = 32
+
+# Bone pairs (index_a, index_b) used to draw the skeleton overlay.
+SKELETON_BONES = [
+    # Head / torso
+    (LEFT_EAR, LEFT_EYE), (RIGHT_EAR, RIGHT_EYE), (LEFT_EYE, NOSE), (RIGHT_EYE, NOSE),
+    (LEFT_SHOULDER, RIGHT_SHOULDER),
+    (LEFT_SHOULDER, LEFT_HIP), (RIGHT_SHOULDER, RIGHT_HIP),
+    (LEFT_HIP, RIGHT_HIP),
+    # Arms
+    (LEFT_SHOULDER, LEFT_ELBOW), (LEFT_ELBOW, LEFT_WRIST),
+    (RIGHT_SHOULDER, RIGHT_ELBOW), (RIGHT_ELBOW, RIGHT_WRIST),
+    # Legs
+    (LEFT_HIP, LEFT_KNEE), (LEFT_KNEE, LEFT_ANKLE),
+    (RIGHT_HIP, RIGHT_KNEE), (RIGHT_KNEE, RIGHT_ANKLE),
+    (LEFT_ANKLE, LEFT_HEEL), (LEFT_HEEL, LEFT_FOOT_INDEX), (LEFT_ANKLE, LEFT_FOOT_INDEX),
+    (RIGHT_ANKLE, RIGHT_HEEL), (RIGHT_HEEL, RIGHT_FOOT_INDEX), (RIGHT_ANKLE, RIGHT_FOOT_INDEX),
+]
+
+# Minimum per-landmark visibility score for it to be trusted/drawn
+VISIBILITY_THRESHOLD = 0.5
